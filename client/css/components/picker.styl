@@ -1,0 +1,113 @@
+.picker
+  overflow hidden
+
+.picker-toolbar
+  height 40px
+
+.picker-items
+  display -webkit-box
+  display -ms-flexbox
+  display flex
+  -webkit-box-pack center
+  -ms-flex-pack center
+  justify-content center
+  padding 0
+  text-align right
+  font-size px2rem(48px)
+  position relative
+
+.picker-center-highlight
+  box-sizing border-box
+  position absolute
+  left 0
+  width 100%
+  top 50%
+  margin-top -px2rem(36px)
+  &:before
+    left 0
+    top 0
+    bottom auto
+    right auto
+  &:after
+    left 0
+    bottom 0
+    right auto
+    top auto
+
+.picker-center-highlight:before, .picker-center-highlight:after
+  content ''
+  position absolute
+  height 1px
+  width 100%
+  background-color #cacaca
+  display block
+  z-index 15
+  // transform scaleY(0.5)
+
+.picker-slot
+  font-size px2rem(36px)
+  overflow hidden
+  position relative
+  &.picker-slot-left
+    text-align left
+  &.picker-slot-center
+    text-align center
+  &.picker-slot-right
+    text-align right
+  &.picker-slot-divider
+    color #000
+    display -webkit-box
+    display -ms-flexbox
+    display flex
+    -webkit-box-align center
+    -ms-flex-align center
+    align-items: center
+
+.picker-slot-wrapper
+  transition-duration 0.3s
+  transition-timing-function ease-out
+  backface-visibility hidden
+
+.picker-slot-wrapper.dragging, .picker-slot-wrapper.dragging .picker-item
+  transition-duration 0s
+
+.picker-item
+  height 36px
+  line-height 36px
+  padding 0 10px
+  white-space nowrap
+  position relative
+  overflow hidden
+  text-overflow ellipsis
+  color #666
+  left 0
+  top 0
+  width 100%
+  box-sizing border-box
+  transition-duration .3s
+  backface-visibility hidden
+  &.picker-item-far
+  &.picker-selected
+    color #333
+    font-weight 600
+    transform translate3d(0, 0, 0) rotateX(0)
+
+.picker-slot-absolute
+  .picker-item
+    position absolute
+
+.picker-3d
+  .picker-items
+    overflow hidden
+    perspective 700px
+  .picker-slot
+  .picker-item
+    transform-origin center center
+    backface-visibility hidden
+    -webkit-transition-timing-function ease-out
+
+.picker-3d
+  .picker-item, .picker-slot, .picker-slot-wrapper
+    -webkit-transform-style preserve-3d
+    transform-style preserve-3d
+

@@ -1,0 +1,58 @@
+.mint-switch 
+  display: flex
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  position: relative
+
+.mint-switch * 
+    pointer-events: none
+
+.mint-switch-label 
+    margin-left: px2rem(20px)
+    display: inline-block
+    &:empty 
+      margin-left: 0
+
+.mint-switch-core 
+    display: inline-block
+    position: relative
+    width: px2rem(104px)
+    height: px2rem(64px)
+    border: px2rem(2px) solid #d9d9d9
+    border-radius: px2rem(32px)
+    box-sizing: border-box
+    background: #d9d9d9
+
+    &::after, &::before 
+      content: " "
+      top: 0
+      left: 0
+      position: absolute
+      transition: transform .3s
+      transition: transform .3s, -webkit-transform .3s
+      border-radius: px2rem(30px)
+
+    &::after 
+      width: px2rem(60px)
+      height: px2rem(60px)
+      background-color: #fff
+      box-shadow: 0 1px px2rem(6px) rgba(0, 0, 0, .4)
+
+    &::before
+      width: px2rem(100px)
+      height: px2rem(60px)
+      background-color: #fdfdfd
+
+.mint-switch-input
+  display: none
+
+  &:checked + .mint-switch-core
+    border-color: #ff7e00
+    background-color: #ff7e00
+
+  &:checked + .mint-switch-core::before
+    transform: scale(0)
+
+  &:checked + .mint-switch-core::after
+    transform: translateX(px2rem(40px))

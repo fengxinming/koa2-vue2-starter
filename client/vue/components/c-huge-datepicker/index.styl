@@ -1,0 +1,262 @@
+.mint-popup-right[data-name='c-huge-datepicker']
+    width: 100%
+    height: 100%
+
+.c-huge-datepicker
+    background-color: #fff
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+    .c-huge-datepicker-header, .c-huge-datepicker-main
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 5
+    .c-huge-datepicker-main
+        top: px2rem(260px)
+        bottom: 0
+        width 100%
+        overflow: auto
+        -webkit-overflow-scrolling: touch
+
+    .c-huge-datepicker-header
+        border-bottom: 1px solid #eee
+        height: px2rem(260px)
+        
+        .c-huge-datepicker-datebar
+            height: px2rem(188px)
+            overflow: hidden
+
+            .c-huge-datepicker-datebox
+                padding: px2rem(24px) 0;
+                text-align: center;
+                width: px2rem(292px)
+
+                .c-huge-datepicker-datebox-year
+                    display: block
+                    line-height: px2rem(42px)
+                    font-size: px2rem(24px)
+                    color: #9b9b9b
+                .c-huge-datepicker-datebox-month-date
+                    display: block
+                    line-height: px2rem(62px)
+                    font-size: px2rem(60px)
+                    color: #333
+                .c-huge-datepicker-datebox-label
+                    display: block
+                    line-height: px2rem(38px)
+                    font-size: px2rem(24px)
+                    color: #666
+
+            .c-huge-datepicker-datebox-separator  
+                $block-height = px2rem(82.5px)
+
+                height: $block-height
+                top: px2rem(52.5px)
+                position: relative
+                overflow: hidden
+                &::before
+                    content: ''
+                    position:absolute
+                    display: block
+                    height: 1000rem
+                    width: 1px
+                    background-color: #cacaca
+                    left: 50%
+                    top: (@height - $block-height) * -0.5
+                    transform rotateZ(32deg)
+
+        ul.c-huge-datepicker-weekbox
+            li
+                float: left
+                width: (100% / 7)
+                text-align: center
+                height: px2rem(52.5px)
+                line-height: @height
+                color: #b8b8b8
+                font-size: px2rem(34px)
+
+    .c-huge-datepicker-main
+        
+        dl.c-huge-datepicker-main-calendar
+            padding: px2rem(30px) 0
+            dt
+                line-height: px2rem(70px)
+                padding-left: px2rem(28px)
+                color: #b7b7b7
+                font-size: px2rem(48px)
+                text-align: left
+            dd
+                float: left
+                width: (100% / 7)
+                height: px2rem(72px)
+                line-height: @height
+                margin px2rem(15px) 0
+                color: #969696
+                text-align: center
+                font-size: px2rem(30px)
+                &.disabled
+                    color: #e2e2e2
+                &.begin, &.end, &.inside, &.selected
+                    em
+                        background-color: #009ff0
+                        color: #fff
+                &.begin
+                    em
+                        border-top-left-radius: 50%
+                        border-bottom-left-radius: 50%
+                &.end
+                    em
+                        border-top-left-radius: 50%
+                        border-bottom-left-radius: 50%
+                &.selected
+                    em
+                        border-radius: 50%
+                em
+                    display: block;
+                    margin: 0 auto;
+                    height: @height;   
+                    width: @height; 
+//   #calendar-date
+//       height: 2.5rem
+//       overflow: hidden
+//       .date
+//           padding: 0.31rem 0
+//           text-align: center
+//           width: 3.9rem
+//           .year
+//               display: block
+//               line-height: 0.56rem
+//               font-size: $c-fz-s
+//               color: #9b9b9b
+//           .month-date
+//               display: block
+//               line-height: 0.83rem
+//               font-size: px2rem(60px)
+//               color: $c-color-gray1
+//           .label
+//               display: block
+//               line-height: 0.5rem
+//               font-size: $c-fz-s
+//               color: $c-color-gray2
+//           &.fl
+//               float: left
+//           &.fr
+//               float: right
+//           &.placeholder
+//               height: 100%
+//               position: relative
+//               &::before
+//                   content: ''
+//                   display: block
+//                   position: absolute
+//                   left: 50%
+//                   top: 50%
+//                   height: 1px
+//                   width: 0.9rem
+//                   margin-left: @width * -0.5
+//                   background-color: $c-color-gray4
+
+//       .spliter
+//           $block-height = 1.1rem
+//           height: $block-height
+//           margin: 0.7rem auto
+//           position: relative
+//           overflow: hidden
+//           &::before
+//               content: ''
+//               position:absolute
+//               display: block
+//               height: 1000rem
+//               width: 1px
+//               background-color: $c-color-gray4
+//               left: 50%
+//               top: (@height - $block-height) * -0.5
+//               transform(rotateZ(32deg))
+                  
+//       // &.single
+//       //     display: none
+      
+//   #week-label
+//       height: 0.7rem
+//       overflow: hidden
+//       .item
+//           float: left
+//           width: (100%/7)
+//           text-align: center
+//           height: @height
+//           line-height: @height
+//           color: #b8b8b8
+//           font-size: $c-fz-l
+
+
+//   $item-width = (10rem / 7)
+//   $num-width = 0.95rem
+//   $space-w = ($item-width - $num-width) * 0.5
+//   #month-list
+//       padding-top: 0.2rem
+//       height: 100%
+//       overflow: auto
+//       transform(translate3d(0,0,0))
+//       .month-item
+//           overflow: hidden
+//           padding-top: 0.35rem
+//           .month-info
+//               line-height: 0.86rem
+//               padding-left: 0.37rem
+//               color: #b7b7b7
+//               font-size: px2rem(48px)
+//               text-align: left
+//           .month-main
+//               overflow: hidden
+//               padding-top: 0.2rem
+//               .item
+//                   float: left
+//                   width: $item-width
+//                   height: 1.4rem
+//                   color: #969696
+//                   .num
+//                       display:block
+//                       position: relative
+//                       // margin: auto
+//                       height: $num-width
+//                       line-height: @height
+//                       text-align: center
+//                       font-size: px2rem(30px)
+//                   &.disable
+//                       color: #e2e2e2
+//                   &.progress .num,
+//                   &.start-date .num,
+//                   &.end-date .num
+//                       background-color: $c-color-blue
+//                       color: #fff
+
+
+//   &[calendar-type="multiple"]
+//       [state="complete"]
+//           .start-date .num
+//               margin-left: $space-w
+//               padding-right: $space-w
+//               border-top-left-radius: 99rem
+//               border-bottom-left-radius: 99rem
+//           .end-date .num
+//               margin-right: $space-w
+//               padding-left: $space-w
+//               border-top-right-radius: 99rem
+//               border-bottom-right-radius: 99rem
+//       [state="waiting"]
+//           .start-date .num
+//               margin: 0 $space-w
+//               border-radius: 100%
+          
+//   &[calendar-type="single"]
+//       // set-header-height(1.3rem)
+//       #week-label
+//           margin-top: 0.3rem
+//       .item.start-date .num
+//           margin: 0 $space-w
+//           padding: 0
+//           border-radius: 100%

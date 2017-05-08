@@ -1,0 +1,873 @@
+{
+    "code": 998,
+    "message": "服务调用成功.",
+    
+    "result":{
+
+        "id": 9,
+
+        "name": "蜘蛛测试大酒店",
+
+        "grade": 5,
+
+        "gradeName": "豪华",
+
+        "price": 130,
+
+        "address": "测试酒店详细地址",
+
+        "pic": "http://192.168.1.106/hotel/pic/9/02191610l4rzkDyM.jpg",
+
+        "haveWifi": 1,
+
+        "haveCarPark": 1,
+
+        "pictureAmount": 156,
+
+        "latitude": 22.547231,
+
+        "longitude": 114.053486,
+
+        "policies": "最早到店时间 : 1:00 最晚离店时间 : 13:00",
+
+        "checkInPolicies": "1:00",
+
+        "checkOutPolicies": "13:00",
+
+        "cancel": "此酒店预订确认成功后，不可取消。",
+
+        "facilities": "深圳皇轩酒店是深圳CBD中心区全新精品商务酒店。酒店由马来西亚VS集团下属星城酒店管理公司投资管理，目前在深圳、珠海、沈阳已经拥有4家连锁酒店。深圳皇轩酒店坐落于福田商务中心区，毗邻深圳会展中心和深圳市民中心地理位置极其优越。邻近地铁站福民路C出口。酒店内部环境高贵典雅、温馨舒适、品位独特，另配有5Spice 西餐厅、中餐厅、大型宴会厅与会议室、健身中心等。豪华舒适的住宿设施与热情周到的服务，为宾客创造一个全新愉悦的商务之旅。\r\n　　酒店开业时间2009年7月28日，楼高21层，客房总数334间（套）",
+
+        "phone": "13977777777",
+
+        "introduction": "测试酒店简介",
+
+        "roomList": [
+
+            {
+
+                "id": 5521,
+
+                "type": 8,
+
+                "name": "单元测试(勿关房态)",
+
+                "amount": 11,
+
+                "adult": 2,
+
+                "child": 1,
+
+                "floor": "2-16",
+
+                "area": "30-100",
+
+                "broadband": 0,
+
+                "wireless": 0,
+
+                "bedSize": "2",
+
+                "bedAmount": "13",
+
+                "remark": "",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel/pic/9/022511099zrqji4g.jpg",
+                "policyList": [
+
+                    {
+
+                        "begPolicyId": 109747,
+
+                        "policyId": 150171,
+
+                        "roomId": 71340,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "test room",
+
+                        "policyName": "无早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "无早"
+
+                    }
+                ]
+
+            },
+
+            {
+
+                "id": 7093,
+
+                "type": 5,
+
+                "name": "屌丝行政房",
+
+                "amount": 100,
+
+                "adult": 2,
+
+                "child": 2,
+
+                "floor": "20-30",
+
+                "area": "50-100",
+
+                "broadband": 2,
+
+                "wireless": 2,
+
+                "bedType": "单人床",
+
+                "bedSize": "1.8",
+
+                "bedAmount": "1",
+
+                "remark": "哈哈",
+
+                "haveRoom": 1,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg",
+
+                "minPrice": 100,
+
+                "policyList": [
+
+                    {
+
+                        "begPolicyId": 109716,
+
+                        "policyId": 28593,
+
+                        "roomId": 7093,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "屌丝行政房",
+
+                        "policyName": "双早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "双早",
+
+                        "bedSize": "1.8"
+
+                    }
+
+                ]
+
+            },
+
+            {
+
+                "id": 71340,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "adult": 0,
+
+                "broadband": 0,
+
+                "wireless": 0,
+
+                "bedType": "大床",
+
+                "bedAmount": "1",
+
+                "haveRoom": 1,
+
+                "roomPicture": "http://192.168.1.106/hotel/pic/9/02251220IeJfapK7.gif",
+
+                "minPrice": 100,
+
+                "policyList": [
+
+                    {
+
+                        "begPolicyId": 109747,
+
+                        "policyId": 150171,
+
+                        "roomId": 71340,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "test room",
+
+                        "policyName": "无早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "无早"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 9,
+
+                        "policyId": 150171,
+
+                        "roomId": 71340,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "test room",
+
+                        "policyName": "无早",
+
+                        "price": 115,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "无早"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 109749,
+
+                        "policyId": 150173,
+
+                        "roomId": 71340,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "test room",
+
+                        "policyName": "双早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "双早"
+
+                    }
+
+                ]
+
+            },
+
+            {
+
+                "id": 71370,
+
+                "type": 1,
+
+                "name": "第三方",
+
+                "adult": 2,
+
+                "child": 4,
+
+                "floor": "",
+
+                "area": "4-4",
+
+                "broadband": 0,
+
+                "wireless": 0,
+
+                "bedSize": "3",
+
+                "bedAmount": "1",
+
+                "remark": "",
+
+                "haveRoom": 1,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg",
+
+                "minPrice": 100,
+
+                "policyList": [
+
+                    {
+
+                        "begPolicyId": 109752,
+
+                        "policyId": 149856,
+
+                        "roomId": 71370,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "第三方",
+
+                        "policyName": "双早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "双早",
+
+                        "bedSize": "3"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 109753,
+
+                        "policyId": 149857,
+
+                        "roomId": 71370,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "第三方",
+
+                        "policyName": "无早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "无早",
+
+                        "bedSize": "3"
+
+                    }
+
+                ]
+
+            },
+
+            {
+
+                "id": 71426,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "adult": 0,
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "bedAmount": "1",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 71427,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "adult": 0,
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "bedAmount": "1",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 72011,
+
+                "type": 1,
+
+                "name": "刀剑笑",
+
+                "amount": 1,
+
+                "adult": 1,
+
+                "floor": "",
+
+                "area": "100-1230",
+
+                "broadband": 0,
+
+                "wireless": 0,
+
+                "bedType": "大床",
+
+                "bedSize": "3",
+
+                "bedAmount": "1",
+
+                "remark": "",
+
+                "haveRoom": 1,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg",
+
+                "minPrice": 100,
+
+                "policyList": [
+
+                    {
+
+                        "begPolicyId": 109771,
+
+                        "policyId": 150170,
+
+                        "roomId": 72011,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "刀剑笑",
+
+                        "policyName": "无早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "无早",
+
+                        "bedSize": "3"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 109772,
+
+                        "policyId": 150176,
+
+                        "roomId": 72011,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "刀剑笑",
+
+                        "policyName": "单早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "单早",
+
+                        "bedSize": "3"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 109773,
+
+                        "policyId": 150177,
+
+                        "roomId": 72011,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "刀剑笑",
+
+                        "policyName": "双早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "双早",
+
+                        "bedSize": "3"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 109774,
+
+                        "policyId": 150178,
+
+                        "roomId": 72011,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "刀剑笑",
+
+                        "policyName": "三早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "三早",
+
+                        "bedSize": "3"
+
+                    },
+
+                    {
+
+                        "begPolicyId": 109775,
+
+                        "policyId": 150179,
+
+                        "roomId": 72011,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "刀剑笑",
+
+                        "policyName": "四早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "四早",
+
+                        "bedSize": "3"
+
+                    }
+
+                ]
+
+            },
+
+            {
+
+                "id": 72134,
+
+                "type": 1,
+
+                "name": "测试111",
+
+                "adult": 2,
+
+                "child": 1,
+
+                "floor": "",
+
+                "area": "22-22",
+
+                "broadband": 0,
+
+                "wireless": 1,
+
+                "bedType": "大床",
+
+                "bedSize": "2",
+
+                "bedAmount": "1",
+
+                "remark": "",
+
+                "haveRoom": 1,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg",
+
+                "minPrice": 100,
+
+                "policyList": [
+
+                    {
+
+                        "begPolicyId": 109778,
+
+                        "policyId": 150481,
+
+                        "roomId": 72134,
+
+                        "hotelId": 9,
+
+                        "hotelName": "蜘蛛测试大酒店",
+
+                        "roomName": "测试111",
+
+                        "policyName": "无早",
+
+                        "price": 100,
+
+                        "bedAmount": 1,
+
+                        "bedType": "大床",
+
+                        "policyType": 1,
+
+                        "comboPrice": 0,
+
+                        "breakfast": "无早",
+
+                        "bedSize": "2"
+
+                    }
+
+                ]
+
+            },
+
+            {
+
+                "id": 74044,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 74045,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 74065,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "bedAmount": "3",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 74067,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "bedAmount": "3",
+
+                "remark": "测试房型",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 74469,
+
+                "type": 1,
+
+                "name": "test room",
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "双人床",
+
+                "bedAmount": "3",
+
+                "remark": "测试房型",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            },
+
+            {
+
+                "id": 74960,
+
+                "type": 1,
+
+                "name": "青花瓷",
+
+                "adult": 123,
+
+                "child": 33,
+
+                "area": "321-423",
+
+                "broadband": 1,
+
+                "wireless": 1,
+
+                "bedType": "1",
+
+                "bedSize": "233",
+
+                "bedAmount": "13",
+
+                "haveRoom": 0,
+
+                "roomPicture": "http://192.168.1.106/hotel//23101954/201601121216046525184.jpg"
+
+            }
+
+        ]
+
+    }
+
+}

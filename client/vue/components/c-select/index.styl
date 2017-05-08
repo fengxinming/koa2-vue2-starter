@@ -1,0 +1,41 @@
+
+$row-height = px2rem(110px)
+
+dl.c-select-options
+    max-height: $row-height * 8
+    overflow-y: auto
+
+    &[group='1']
+        dt
+            font-weight: 900
+            padding: 0 px2rem(24px)
+            font-size: px2rem(32px)
+            line-height: $row-height - px2rem(20px)
+            overflow(ellipsis)
+        dd
+            text-align: left    
+            padding: 0 0 0 px2rem(36px)
+            width: auto
+    dd
+        position: relative
+        height: $row-height
+        line-height: @height
+        color: #333
+        border-bottom: 1px solid #e2e2e2
+        text-align: center
+        font-size: px2rem(36px)
+        display: block
+        width: 100%
+        overflow(ellipsis)
+        &.checked::after
+            content: ''
+            position: absolute
+            display: block
+            width: 0.62rem
+            height: @width
+            top: 50%
+            right: 0.52rem
+            margin-top: @height * -0.5
+            background: #ff7e00 inline-url("images/commons/icon-check_1@2x.png") center no-repeat
+            background-size: 70%
+            border-radius: 50%

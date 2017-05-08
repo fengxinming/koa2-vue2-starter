@@ -1,0 +1,38 @@
+x-arrow(color, size, direction=up, width=2px, side=after)
+    if direction == up
+        $deg = -45deg
+    if direction == left
+        $deg = -135deg
+    if direction == down
+        $deg = 135deg
+    if direction == right
+        $deg = 45deg
+    &::{side}
+        content: ''
+        box-sizing: border-box
+        width: size
+        height: size
+        border: width solid
+        border-color: color color transparent transparent
+        border-radius .05rem
+        transform: rotate($deg)
+        transform-origin: 75% 25%
+        {block}
+
+no-scrollbar()
+  &::-webkit-scrollbar 
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none;
+    opacity: 0 !important;
+
+scrollable() 
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+flex-shrink($fs) 
+  -webkit-box-flex: $fs;
+  -webkit-flex-shrink: $fs;
+  -ms-flex: 0 $fs auto;
+  flex-shrink: $fs;

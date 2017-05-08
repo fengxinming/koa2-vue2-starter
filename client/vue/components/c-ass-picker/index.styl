@@ -1,0 +1,39 @@
+.mint-popup-bottom[picker-name='c-ass-picker']
+  width 100%
+
+  .c-ass-picker
+    $row-height = px2rem(100px)
+
+    width: 100%
+
+    .c-ass-picker-header
+        height: $row-height
+        background-color: #eeeeee
+
+        .c-ass-picker-button
+            width: px2rem(180px)
+            height: @height
+            line-height: @height
+            color: #009ff0
+            font-size: px2rem(34px)
+            text-align: center
+            outline: none
+            border 0 none
+            background: inherit
+
+            &.cancel
+                float: left
+            &.confirm
+                float: right    
+
+        .c-ass-picker-title
+            margin: 0 px2rem(180px)
+            display: block
+            line-height: @height
+            color: #cacaca
+            font-size: px2rem(34px)
+            text-align: center
+            overflow(ellipsis)
+
+    .c-ass-picker-main
+        padding: px2rem(24px) 0

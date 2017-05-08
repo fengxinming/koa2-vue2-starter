@@ -1,0 +1,102 @@
+
+.mint-msgbox 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  background-color: #fff;
+  width: 85%;
+  border-radius: px2rem(30px);
+  font-size: px2rem(16px);
+  user-select: none;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: .2s;
+
+.mint-msgbox-header 
+  padding: px2rem(30px) 0 0;
+
+.mint-msgbox-content 
+  padding: px2rem(10px) px2rem(20px);
+  border-bottom: 1px solid #ddd;
+  min-height: px2rem(72px);
+  position: relative;
+
+.mint-msgbox-input 
+  padding-top: px2rem(30px);
+
+  input
+    border: 1px solid #dedede;
+    border-radius: px2rem(10px);
+    padding: px2rem(8px) px2rem(10px);
+    width: 100%;
+    appearance: none;
+    outline: none;
+
+    &.invalid 
+      border-color: #ff4949;
+      &:focus 
+        border-color: #ff4949;
+
+.mint-msgbox-errormsg 
+  color: red;
+  font-size: 12px;
+  min-height: 18px;
+  margin-top: 2px;
+
+.mint-msgbox-title 
+  text-align: center;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: px2rem(40px);
+  font-weight: 700;
+  color: #333;
+
+.mint-msgbox-message 
+  color: #000;
+  margin: 0;
+  text-align: center;
+  padding: px2rem(20px) 0;
+  line-height: px2rem(42px);
+  font-size: px2rem(34px);
+
+.mint-msgbox-btns 
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: px2rem(100px);
+  line-height: @height;
+
+.mint-msgbox-btn
+  font-size: px2rem(36px);
+  line-height: px2rem(80px);
+  display: block;
+  background-color: #fff;
+  flex: 1;
+  margin: 0;
+  border: 0 none;
+  font-weight: 600;
+  &:focus
+    outline: none;
+  &:active
+    background-color: #fff;
+
+.mint-msgbox-cancel 
+  width: 50%;
+  border-right: 1px solid #ddd;
+  &:active 
+    color: #000;
+
+.mint-msgbox-confirm 
+  color: #26a2ff;
+  width: 50%;
+  &:active
+    color: #26a2ff;
+
+.msgbox-bounce-enter
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+
+.msgbox-bounce-leave-active
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.9);

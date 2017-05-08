@@ -1,0 +1,38 @@
+.mint-swipe
+  overflow hidden
+  position relative
+  height 100%
+
+.mint-swipe-items-wrap
+  position relative
+  overflow hidden
+  height 100%
+  & > div
+    position absolute
+    -webkit-transform translateX(-100%)
+    transform translateX(-100%)
+    width 100%
+    height 100%
+    &.is-active
+      display block
+      -webkit-transform none
+      transform none
+
+.mint-swipe-indicators
+  position absolute
+  bottom px2rem(10px)
+  left 50%
+  -webkit-transform translateX(-50%)
+  transform translateX(-50%)
+
+.mint-swipe-indicator
+  width px2rem(8px)
+  height px2rem(8px)
+  display inline-block
+  border-radius 100%
+  background #000
+  opacity 0.2
+  margin 0 px2rem(3px)
+  &.is-active
+    background #fff
+

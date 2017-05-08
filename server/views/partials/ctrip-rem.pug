@@ -1,0 +1,4 @@
+//- 引入该文件前不能设置meta viewport
+
+script.
+  (function(d,c){var e=d.documentElement,a="orientationchange" in window?"orientationchange":"resize",b=function(){var j=e.clientWidth;if(!j){return}var h=20*(j/320);h=(h>54)?54:h;if(!/windows phone|iphone|android/ig.test(window.navigator.userAgent)){h=20}e.style.fontSize=h+"px";var g=window.devicePixelRatio;var f=document.querySelector('meta[name="viewport"]');e.setAttribute("data-dpi",g);var i=1/g};if(!d.addEventListener){return}c.addEventListener(a,b,false);d.addEventListener("DOMContentLoaded",b,false)})(document,window);

@@ -1,0 +1,57 @@
+// 页面切换效果
+.app-forward, .app-backward
+  transition: all 0.3s ease-in-out
+
+// 后退
+.app-backward-enter, .app-backward-leave-active
+  opacity: 0
+
+.app-backward-leave-active 
+  position: absolute
+  transform: translateX(-100%)
+
+// 前进
+.app-forward-enter, .app-forward-leave-active
+  opacity: 0
+
+.app-forward-leave-active 
+  position: absolute
+  transform: translateX(100%)
+
+.app-layout
+  // position: relative
+  height: 100%
+  width: 100%
+
+  .view-box-body
+    overflow: hidden
+    width: 100%
+    height: 100%
+    -webkit-overflow-scrolling: touch;
+
+.page-layout
+  background-color: #eee
+  position: absolute
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+  .page-header, .page-main, .page-footer
+    position: absolute
+    left: 0
+    width: 100%
+    z-index: 5
+
+  .page-header
+    top: 0
+
+  .page-footer
+    bottom 0
+
+  .page-main
+    top: 0
+    bottom: 0
+    width: 100%
+    overflow: auto
+    -webkit-overflow-scrolling: touch
+    

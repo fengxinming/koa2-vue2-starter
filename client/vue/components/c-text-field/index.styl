@@ -1,0 +1,41 @@
+.c-text-field
+  font-size: px2rem(36px)
+  width: 100%
+  display: block
+  position: relative
+  height: px2rem(100px)
+  line-height: @height
+  border-bottom: 1px solid #eaeaea
+  &.focus-state
+    border-bottom: px2rem(4px) solid #ff7e00
+    .c-text-field-placeholder
+      color: #ff7e00
+
+  &.focus-state, &.hang-up  
+    .c-text-field-placeholder
+      transform: scale(0.78) translateY(px2rem(-20px))  
+
+  .c-text-field-placeholder
+    top: px2rem(0px)
+    position: absolute;
+    color: #999
+    transition: all .45s $easeOutFunction
+    cursor: text
+    transform: translate3d(0, 0, 0)
+    transform-origin: left top
+    user-select: none
+    pointer-events: none
+    backface-visibility: hidden
+
+  .c-text-field-text
+    // transition: all .45s ease-in-out
+    border: 0 none
+    background: transparent
+    border-radius: 0 0 0 0
+    box-shadow: none
+    padding: 0
+    margin: 0
+    width: 100%
+    padding: px2rem(48px) 0 px2rem(18px) 0
+    box-sizing: content-box
+    height: @font-size

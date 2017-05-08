@@ -1,0 +1,199 @@
+.page-main[data-name='flight-search']
+  .flight-banner
+    & > .link
+      &, & > .image
+        display block
+        width 100%
+        height 100%
+  .search-form
+    padding: 0 px2rem(16px)
+    border-radius: 0 0 px2rem(16px) px2rem(16px)
+    background-color: #fff
+    .tab-buttons
+      overflow: hidden
+      .button
+          border-bottom: 1px solid #eaeaea
+          float: left
+          height: px2rem(100)
+          width: 50%
+          line-height: @height
+          color: #333
+          text-align: center
+          font-size: px2rem(34px)
+          &.active
+              border-bottom: px2rem(4px) solid #009ff0
+              color: #009ff0
+    .form-main
+        $space-side = 0.28rem
+        $row-height = px2rem(110px)
+
+        overflow: hidden
+        font-size: px2rem(42px)
+        .pl1
+            padding-left: $space-side
+        .pr1
+            padding-right: $space-side
+        .pl2
+            padding-left: 0.08rem
+        .pr2
+            padding-right: 0.08rem
+        .bb
+            border-bottom: 1px solid #eaeaea
+        .fl
+            float: left 
+        .fr
+            float: right
+        .tr
+            text-align: right
+        .tap-area,
+        .bb
+            display: block
+            height: 100%
+        .tap-area
+            transition(background-color, 0.1s ease-in)
+            &.tap
+                background-color: #eeeeee
+        .text-wrap
+            overflow(ellipsis)
+            display: inline-block
+            max-width: 100%
+            &.null
+                color: #969696
+        .row
+            height: $row-height
+
+            &.city-row
+                line-height: @height
+                overflow: hidden
+                
+                // @keyframes city-from-l-to-r {
+                //     0% {
+                //         translate3d(0, 0, 0)
+                //     }
+                //     100% {
+                //         translate3d(200%, 0, 0)
+                //     }
+                // }
+                // @keyframes city-from-r-to-l {
+                //     0% {
+                //         translate3d(0, 0, 0)
+                //     }
+                //     100% {
+                //         transform: translate3d(-200%, 0, 0)
+                //     }
+                // }
+
+                .tap-area
+                    width: px2rem(290px)
+                    // .pl2, .pr2
+                    //     transition: all .3s ease-in-out
+                        
+                    //- 从左到右
+                    .l-2-r-leave-active
+                        transform: translate3d(200%, 0, 0)
+                        transition: all .3s ease-in-out
+                    .l-2-r-enter
+                        transform: translate3d(200%, 0, 0)
+                    .l-2-r-enter-active
+                        transition: all .3s ease
+                    //- 配合左右互博术
+                    .show-deferred-enter
+                        display: none
+                    .show-deferred-enter-active
+                        transition: all .35s ease
+                        display: none
+                    
+                    //- 从右到左    
+                    .r-2-l-leave-active
+                        transform: translate3d(-200%, 0, 0)
+                        transition: all .3s ease   
+                    .r-2-l-leave
+                        opacity: 0           
+                    .r-2-l-enter
+                        transform: translate3d(-200%, 0, 0)
+                    .r-2-l-enter-active
+                        transition: all .3s ease
+                      
+                .switch-button, .inner-ico
+                    overflow: hidden
+                    height: 100%
+                    background: inline-url('images/flight/switch-inner.png') center no-repeat
+                    background-size: 70%
+                        
+                .inner-ico
+                    background-image: inline-url('images/flight/switch.png')
+                    transition: all .3s linear
+                &.animate
+                    .inner-ico                
+                        transform: rotate(-360deg)
+                    // .tap-area .pl2
+                    //     // transform: translate3d(200%, 0, 0)  
+                    //     animation: city-from-l-to-r .3s ease-in-out
+                    // .tap-area .pr2
+                    //     // transform: translate3d(-200%, 0, 0)  
+                    //     animation: city-from-r-to-l .3s ease-in-out           
+                    
+            &.date-row
+                .depdate,
+                .returndate
+                    display: block
+                    height: 100%
+                    overflow(ellipsis)
+                    .date,
+                    .day
+                        vertical-align: baseline
+                    .day
+                        margin-left: 0.12rem
+                        font-size: px2rem(24px)
+                        color: #969696
+                        
+            &.date-row,
+            .cabin-field
+                line-height: $row-height * 1.2
+            
+            .cabin-field,
+            .child-field
+                width: 4.2rem - $space-side
+                .text-wrap
+                    display: block
+            .child-field
+                padding-top: 0.3rem
+                text-align: right
+                .row1
+                    height: 1.3em
+                    line-height: @height
+                    font-size: px2rem(30px)
+                    &:before
+                        content: ''
+                        margin-right: 0.2rem
+                        display: inline-block
+                        vertical-align: top
+                        margin-top: 0.05rem
+                        width: 1em
+                        height: @width
+                        x-check-icon(false)
+                        box-sizing: border-box
+                        border-radius: 50%!important;
+                    &[state='on']::before
+                        x-check-icon(true)
+                        background-size: 60% auto
+                        
+                        
+                .row2
+                    line-height: 1.3em
+                    font-size: px2rem(24px)
+                    color: #969696
+            
+                
+        .button-search
+            margin: 0.9rem $space-side 0.73rem
+            height: 1.2rem
+            background-color: #009ff0
+            line-height: @height
+            text-align: center
+            font-size: px2rem(34px)
+            color: #fff
+            border-radius: px2rem(7px)
+            transition: all, 0.15s, ease-in
+            &.tap
+                x-button-tap(@background-color, @color)      

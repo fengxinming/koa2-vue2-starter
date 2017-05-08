@@ -1,0 +1,41 @@
+.mint-popup[data-name='charge-detail']
+    width:100%
+    background:none
+    bottom:px2rem(200px)
+    
+    #order-charge-detail
+        text-align: center
+        overflow: auto
+        &:before
+            content: ''
+            width: 1px
+            height: 100%
+            display: inline-block
+            vertical-align: middle
+        .container
+            display: inline-block
+            width: 9.2rem
+            vertical-align: middle
+            color: #fff
+            .label
+                float: left
+            .amount,.price
+                float: right
+                height: 0.7rem
+            .title
+                line-height: 0.8rem
+                font-size: px2rem(34px)
+                margin-bottom: 0.2rem
+                text-align: left
+            .section
+                font-size: px2rem(30px)
+                .head
+                    height: 0.5rem
+                    line-height: @height
+                    border-bottom: 2px solid #fff
+                    font-size: px2rem(30px)
+                .content
+                    padding: 0.2rem 0 0.8rem 0.7rem
+                    .row
+                        height: 0.7rem
+                        line-height: @height

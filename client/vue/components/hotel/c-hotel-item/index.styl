@@ -1,0 +1,117 @@
+$space-v = 0.3rem
+$bg-color = #f3f3f3
+$border-color = #eee
+$space-side=0.4rem
+$c-color-orange = $c-color-orange1 = #ff7e00
+
+.hotel-item
+    margin-bottom -1px
+    display: block
+    overflow: hidden
+    position: relative
+    padding-left: $space-side
+    transition(background, 0.1s linear)
+    &.hover
+        background-color: #eee
+    .wrap
+        overflow: hidden
+        height: 100%
+        padding: $space-v 0
+        border-bottom: 1px solid $border-color
+        padding-right: $space-side
+    .left-block
+        position: relative
+        margin-right: 0.3rem
+        float: left
+        width: 2.05rem
+        height: 2.2rem
+        border-radius(2px)
+        .image
+            display: block
+            width: 100%
+            height: 100%
+        .label
+            position: absolute
+            left: 0
+            bottom: 0
+            width: 100%
+            height: 0.5rem
+            background-color: alpha($c-color-orange, 0.6)
+            color: #fff
+            line-height: @height
+            font-size: 0.25rem
+            text-align: center
+    .right-block
+        overflow: hidden
+        .hotel-name
+            padding: 0.1rem 0 0.15rem
+            height: 0.4rem
+            box-sizing(content-box)
+            line-height: 0.4rem
+            font-size: 0.4rem
+            color: #333
+            overflow(ellipsis)
+        .row
+            font-size: 0.3rem
+            color: #999
+            line-height: 0.5rem
+            overflow(ellipsis)
+            .item
+                margin-right: 0.2em
+        .info
+            margin-top: 0.1rem
+            text-align: right
+            vertical-align: bottom
+            .room-type,
+            .breakfast
+                display inline-block
+                margin-right: 0.4em
+                padding: 0 0.3em
+                font-size: 0.23rem
+                line-height: 0.4rem
+                border: 1px solid 
+                border-radius: 2px
+            .room-type
+                color: #ff3434
+            .breakfast
+                color: #fea818
+            .price
+                display: inline-block
+                // width: 1.6rem
+                vertical-align: bottom
+                text-align: right
+                .yen,
+                .word
+                    font-size: 0.3rem
+                .yen,
+                .num
+                    color: $c-color-orange
+                .word
+                    // color: #999
+                    position: relative
+                    top: -0.1em
+                    margin-left: 0.2em
+                .num
+                    font-weight: bold
+                    font-size: 0.5rem
+                
+                .hidden-price
+                    width: 0.6rem
+                    display: inline-block
+                    background: inline-url('images/commons/price-ellipsis.png') center left no-repeat
+                    background-size(100% auto)
+                    height: 1em
+                    vertical-align: middle
+    .full-mark
+        position: absolute
+        top: 0
+        width: 2rem
+        height: 0.9rem
+        right: @width * -0.5
+        line-height: @height * 1.2
+        color: #fff
+        text-align: center
+        background: $c-color-orange
+        transform-origin(50%, 0)
+        transform(rotateZ(45deg))
+

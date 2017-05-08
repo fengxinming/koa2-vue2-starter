@@ -1,0 +1,49 @@
+{
+  "appenders": [{
+    "type": "dateFile",
+    "filename": "./logs/app.log",
+    "category": "app",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/http.log",
+    "category": "http",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/router.log",
+    "category": "router",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/service.log",
+    "category": "service",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/request.log",
+    "category": "request",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/proxy.log",
+    "category": "proxy",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/error.log",
+    "category": "error",
+    "pattern": "-yyyy-MM-dd"
+  }, {
+    "type": "dateFile",
+    "filename": "./logs/client.log",
+    "category": "client",
+    "pattern": "-yyyy-MM-dd"
+  }],
+  "levels": [{
+    "router": "INFO",
+    "request": "INFO",
+    "proxy": "INFO",
+    "service": "INFO"
+  }]
+}

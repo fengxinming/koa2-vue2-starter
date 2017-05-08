@@ -1,0 +1,11 @@
+$default-ps-width = 750px;
+
+/**
+ * 将px单位的数值转换为rem单位的数值
+ *
+ * $size: 大小
+ * $base：PS的长度
+ */
+
+px2rem($size, $base = $default-ps-width)
+  return 0rem + $size * 10 / $base

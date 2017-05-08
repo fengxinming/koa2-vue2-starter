@@ -1,0 +1,41 @@
+// 淡入淡出效果
+.fade-enter-active, .fade-leave-active
+  transition: opacity .3s
+
+.fade-enter, .fade-leave-active
+  opacity: 0
+
+.fade-from-above, .fade-from-below, .fade-from-left, .fade-from-right
+    transition: all 0.3s ease-in-out
+
+// 向上淡入显示
+.fade-from-above-enter, .fade-from-above-leave-active
+    opacity: 0
+    transform: translateY(-100%)
+
+.fade-from-above-leave-active 
+    position: absolute
+
+// 向下淡入显示
+.fade-from-below-enter, .fade-from-below-leave-active
+    opacity: 0
+    transform: translateY(100%)
+
+.fade-from-below-leave-active 
+    position: absolute
+
+// 向左淡入显示
+.fade-from-left-enter, .fade-from-left-leave-active
+    opacity: 0
+    transform: translateX(-100%)
+
+.fade-from-left-leave-active 
+    position: absolute
+
+// 向右淡入显示
+.fade-from-right-enter, .fade-from-right-leave-active
+    opacity: 0
+    transform: translateX(100%)
+
+.fade-from-right-leave-active 
+    position: absolute

@@ -1,0 +1,17 @@
+.DS_STORE
+*.log
+npm-debug.log
+npm-debug.log.*
+eslint.log
+eslint.log.*
+
+logs
+node_modules
+public/js
+public/css
+public/assets
+dist
+coverage
+
+.idea/
+.vscode

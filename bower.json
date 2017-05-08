@@ -1,0 +1,12 @@
+{
+  "name": "koa2-mobile-starter",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower-components"
+  ],
+  "dependencies": {
+    "es6-promise": "^4.0.5"
+  }
+}

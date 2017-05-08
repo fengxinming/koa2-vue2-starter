@@ -1,0 +1,21 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "expect": true,
+    "sinon": true,
+    "Promise": true
+  },
+  "plugins": ["vue"],
+  "extends": "elemefe",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-fallthrough": 0 // 是否控制switch穿透
+  }
+}
