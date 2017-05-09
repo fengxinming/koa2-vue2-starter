@@ -9,8 +9,8 @@
 ## How to get codes from remote GIT repository
 
 ```bash
-$ git@gitlab.ziztour.loc:tmc/tmc-h5-flight.git
-$ cd tmc-h5-flight
+$ git@gitlab.ziztour.loc:tmc/koa2-mobile-starter.git
+$ cd koa2-mobile-starter
 $ cnpm install
 ```
 
