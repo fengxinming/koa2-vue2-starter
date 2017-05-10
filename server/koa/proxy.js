@@ -1,17 +1,18 @@
 'use strict';
 
 const httpProxy = require('http-proxy');
-const cfgUtil = require('../../conf/server');
+const cfgPath = require('../utils/cfg-constants');
+const cfgFactory = require('../utils/cfg-factory');
 
-const REST_PATH = cfgUtil.locals.REST_PATH;
-const proxy = httpProxy.createProxyServer({});
-const api = cfgUtil.req.api;
+const REST_PATH = cfgFactory.getConfig('locals').REST_PATH;
 
-// 请求转发前的数据处理
-proxy.on('proxyReq', (proxyReq, req, res, options) => {});
+const api = cfgFactory.getConfig('server').req.api;
 
 module.exports = (app) => {
-  if (cfgUtil.NODE_ENV === 'development') {
+  if (cfgPath.NODE_ENV === 'development') {
+    const proxy = httpProxy.createProxyServer({});
+    // 请求转发前的数据处理
+    // proxy.on('proxyReq', (proxyReq, req, res, options) => {});
     return (req, res) => {
       if (req.url.indexOf(REST_PATH) === 0) {
         req.url = req.url.slice(REST_PATH.length);

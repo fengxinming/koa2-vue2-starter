@@ -54,41 +54,17 @@
 
 <script>
   import {
-  
     mapState
-  
   } from 'vuex';
   
   import {
-  
-    M_INIT_AIRLINE_PARAMS,
-  
-    M_UPDATE_AIRLINE_PARAMS
-  
-  } from '../../../stores/flight/types';
+    A_SEARCH_CABS
+  } from '../../../stores/cab/types';
   
   export default {
   
     created() {
-  
-      this.$store.commit(M_INIT_AIRLINE_PARAMS);
-  
-      const seatclasstypes = this.form.seatclasstypes;
-  
-      if (seatclasstypes) {
-  
-        this.seatclasstypes = this.cabinTypes.find((n) => {
-  
-          return n.value === seatclasstypes;
-  
-        });
-  
-      } else {
-  
-        this.seatclasstypes = this.cabinTypes[0];
-  
-      }
-  
+      this.seatclasstypes = this.cabinTypes[0];
     },
   
     data() {
@@ -126,9 +102,9 @@
     },
   
     computed: mapState({
-  
-      form: (state) => state.flight.airlineParams
-  
+      form() {
+        return {};
+      }
     }),
   
     methods: {
@@ -136,25 +112,7 @@
       // 切换城市
   
       exchangeCities() {
-  
-        const depcitycn = this.form.depcitycn;
-  
-        const depcity = this.form.depcity;
-  
-        const form = {};
-  
-        form.depcitycn = this.form.arrcitycn;
-  
-        form.arrcitycn = depcitycn;
-  
-        form.depcity = this.form.arrcity;
-  
-        form.arrcity = depcity;
-  
         this.exchange = !this.exchange;
-  
-        this.$store.commit(M_UPDATE_AIRLINE_PARAMS, form);
-  
       },
   
       // 搜索
@@ -166,30 +124,12 @@
       // 请选择舱位类型
   
       selectCabinType(item) {
-  
         this.$refs.$startCabinSeat.hide();
-  
-        this.$store.commit(M_UPDATE_AIRLINE_PARAMS, {
-  
-          queryBySeatClass: !!item.value,
-  
-          seatclasstypes: item.value
-  
-        });
-  
       },
 
       // 请选择往返程
   
       selectVoyagetype(val) {
-  
-        this.$store.commit(M_UPDATE_AIRLINE_PARAMS, {
-  
-          voyagetype: val,
-  
-          isReturn: val === 2
-  
-        });
   
       }
   

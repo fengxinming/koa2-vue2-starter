@@ -3,9 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('./config');
 const _ = require('./utils');
-const conf = require('../conf/server');
 
-const locals = conf.locals;
+const locals = require('../server/utils/cfg-factory').getConfig('locals');
 
 module.exports = {
   entry: {

@@ -1,15 +1,15 @@
 'use strict';
 
 const path = require('path');
-const serverConfig = require('../conf/server');
+const cfgConstants = require('../server/utils/cfg-constants');
 // const pkg = require('../package');
 
-const staticDir = serverConfig.app.staticDir;
-const staticPath = serverConfig.app.staticPath;
-const viewsDir = serverConfig.app.viewsDir;
+const staticDir = cfgConstants.staticDir;
+const staticPath = cfgConstants.staticPath;
+const viewsDir = cfgConstants.viewsDir;
 
 module.exports = {
-  NODE_ENV: serverConfig.NODE_ENV,
+  NODE_ENV: cfgConstants.NODE_ENV,
   publicPath: staticPath + '/assets/index/',
   outputPath: path.resolve(staticDir, 'assets/index'),
   outputIndexPath: path.join(staticDir, 'assets/index.html'),

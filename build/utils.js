@@ -2,12 +2,13 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./config');
-const serverConfig = require('../conf/server');
+const serverConfig = require('../server/utils/cfg-factory').getConfig('server');
+const cfgConstants = require('../server/utils/cfg-constants');
 
 const _ = module.exports = {};
 
 _.cwd = (file) => {
-  return path.join(serverConfig.projectDir, file || '');
+  return path.join(cfgConstants.projectDir, file || '');
 };
 
 const cssModuleStr = 'css-loader?-autoprefixer&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]';
@@ -40,7 +41,7 @@ _.loadersOptions = () => {
     minimize: isProd,
     options: {
       // css-loader relies on context
-      context: serverConfig.projectDir,
+      context: cfgConstants.projectDir,
       // postcss plugins apply to .css files
       postcss: config.postcss,
       babel: config.babel,

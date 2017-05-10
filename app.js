@@ -2,13 +2,17 @@
 
 const http = require('http');
 const app = require('./server/koa');
-const cfgUtil = require('./conf/server');
-const logFactory = require('./server/utils/logFactory');
+const logFactory = require('koa2-middleware-slacker/utils/log-factory');
 const proxy = require('./server/koa/proxy');
+const cfgFactory = require('./server/utils/cfg-factory');
+const cfgPath = require('./server/utils/cfg-constants');
 
-const serverCfg = cfgUtil;
+logFactory.setDir(cfgPath.logsDir);
+logFactory.configure(cfgPath.logsCfg);
+
+const serverCfg = cfgFactory.getConfig('server');
 const appLog = logFactory.getLogger('app');
-const port = +process.env.port || serverCfg.port;
+const port = serverCfg.server.port;
 const server = http.createServer(proxy(app));
 
 server.on('error', (error) => {

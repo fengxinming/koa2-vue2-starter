@@ -2,14 +2,15 @@
 
 const webpack = require('webpack');
 const base = require('./webpack.base');
-const conf = require('../conf/server');
 const _ = require('./utils');
 const FriendlyErrors = require('friendly-errors-webpack-plugin');
+
+const locals = require('../server/utils/cfg-factory').getConfig('locals');
 
 // base.devtool = '#eval-source-map';
 // base.devtool = 'source-map';
 base.devtool = 'eval';
-base.output.publicPath = conf.locals.DYN_JS_PATH;
+base.output.publicPath = locals.DYN_JS_PATH;
 base.plugins.push(
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('development')

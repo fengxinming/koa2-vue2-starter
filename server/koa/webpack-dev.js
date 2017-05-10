@@ -4,11 +4,13 @@ const nativePath = require('path');
 const chalk = require('chalk');
 const webpack = require('webpack');
 const koaWebpack = require('koa-webpack');
-const config = require('../../conf/server');
+const cfgConstants = require('../utils/cfg-constants');
 const buildConfig = require('../../build/config');
 const clientConfig = require('../../build/webpack.dev');
-const pkg = require(nativePath.join(config.projectDir, 'package.json'));
+const cfgFactory = require('../utils/cfg-factory');
 
+const pkg = require(nativePath.join(cfgConstants.projectDir, 'package.json'));
+const serverConfig = cfgFactory.getConfig('server');
 
 class LogPlugin {
   constructor(port) {
@@ -28,7 +30,7 @@ module.exports = function setupDevServer(app, router) {
     'webpack-hot-middleware/client?reload=true',
     clientConfig.entry.client
   ];
-  clientConfig.plugins.push(new LogPlugin(config.port));
+  clientConfig.plugins.push(new LogPlugin(serverConfig.server.port));
 
   const clientCompiler = webpack(clientConfig);
   const middleware = koaWebpack({
@@ -42,7 +44,7 @@ module.exports = function setupDevServer(app, router) {
     }
   });
   app.use((ctx, next) => {
-    ctx.state.env = config.NODE_ENV;
+    ctx.state.env = cfgConstants.NODE_ENV;
     ctx.state.reload = true;
     return next();
   });
