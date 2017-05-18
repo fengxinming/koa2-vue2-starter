@@ -1,0 +1,14 @@
+extends ./partials/layout
+
+append css
+  link(rel='stylesheet', type='text/css', href='!{locals.STATIC_PATH}/css/app.css')
+
+block content
+  if NODE_ENV !== 'production'
+    h1 【#{status}】 【#{code}】
+    h2 #{message}
+    - var keys = Object.keys(error)
+    each key in keys
+      if key !== 'message'
+        p 【#{key}】 #{error[key]}
+    pre #{error.stack}

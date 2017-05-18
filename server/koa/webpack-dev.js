@@ -61,12 +61,17 @@ module.exports = function setupDevServer(app, router) {
   //     const index = fs.readFileSync(filePath, 'utf-8');
   //   }
   // })
-  router
-    .get((ctx) => {
+
+  // 加载services服务
+  // const allServices = require('../services');
+  router.get(
+    '*',
+    (ctx) => {
       devMiddleWare.waitUntilValid(() => {
         const html = mfs.readFileSync(file);
         ctx.type = 'text/html; charset=utf-8';
         ctx.body = html;
       });
-    });
+    }
+  );
 };

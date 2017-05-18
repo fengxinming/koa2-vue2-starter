@@ -1,5 +1,8 @@
 'use strict';
 
-module.exports = (router) => {
-
+module.exports = (services) => {
+  return [{
+    url: '/entry',
+    use: services.test.entry
+  }];
 };

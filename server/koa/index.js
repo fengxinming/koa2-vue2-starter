@@ -2,23 +2,24 @@
 
 const Koa = require('koa');
 const slacker = require('koa2-middleware-slacker');
+
 const cfgFactory = require('../utils/cfg-factory');
-const cfgPath = require('../utils/cfg-constants');
 // const memeye = require('memeye');
+const router = require('./router');
+const errorHandling = require('./error-handling');
+const localsHandling = require('./locals-handling');
 
 const app = new Koa();
 
-const router = require('./router');
-const pkg = require('../../package');
-
 const appConfig = cfgFactory.getConfig('server').app;
+
+localsHandling(app);
+
+errorHandling(app);
 
 slacker(app, appConfig);
 
 router(app);
-
-app.name = pkg.name;
-app.env = cfgPath.NODE_ENV;
 
 // memeye();
 

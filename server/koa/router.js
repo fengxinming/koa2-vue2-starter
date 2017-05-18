@@ -2,9 +2,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const util = require('util');
+const _ = require('lodash');
 const mount = require('koa-mount');
-const Router = require('koa-trie-router');
+const Router = require('koa-router');
 const send = require('koa-send');
 
 const cfgFactory = require('../utils/cfg-factory');
@@ -22,6 +22,8 @@ module.exports = (app) => {
 
   const idDev = cfgPath.NODE_ENV === 'development';
 
+  const allServices = require('../services');
+
   const router = new Router();
 
   const routerPath = path.resolve(__dirname, '../routes');
@@ -31,9 +33,26 @@ module.exports = (app) => {
   routes.forEach((file) => {
     const fileNameParser = path.parse(file);
     if (fileNameParser.ext === '.js') {
-      const fn = require(path.join(routerPath, file));
-      if (util.isFunction(fn)) {
-        fn(router);
+      let customRoutes = require(path.join(routerPath, file));
+      if (_.isFunction(customRoutes)) {
+        customRoutes = customRoutes(allServices);
+      }
+      if (Array.isArray(customRoutes)) {
+        customRoutes.forEach((customRoute) => {
+          if (_.isObject(customRoute)) {
+            const middlewares = [];
+            let useFn = customRoute.use;
+            if (!Array.isArray(useFn)) {
+              useFn = [useFn];
+            }
+            middlewares.push(...useFn);
+            const renderFn = customRoute.render;
+            if (_.isString(renderFn)) {
+              middlewares.push(allServices.common.renderQuickly);
+            }
+            router[(customRoute.method || 'get')](customRoute.url, ...middlewares);
+          }
+        });
       }
     }
   });
@@ -45,11 +64,16 @@ module.exports = (app) => {
     }));
     require('./webpack-dev')(app, router);
   } else {
-    router.get((ctx) => {
-      return send(ctx, '/assets/index.html', {
-        root: cfgPath.staticDir
+    router.get(
+      '*',
+      (ctx) => {
+        return send(ctx, '/assets/index.html', {
+          root: cfgPath.staticDir
+        });
       });
-    });
   }
-  app.use(router.middleware());
+
+  app
+    .use(router.routes())
+    .use(router.allowedMethods());
 };

@@ -1,6 +1,7 @@
 {
   "name": "h5-travel-plus",
   "description": "mobile starter",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "test": "testcafe all tests/index.js --app \"npm run dev\" --app-init-delay 10000",
@@ -17,8 +18,8 @@
     "koa": "^2.2.0",
     "koa-log4": "^1.1.0",
     "koa-mount": "^2.0.0",
-    "koa-trie-router": "^2.1.2",
-    "koa2-middleware-slacker": "^1.2.0",
+    "koa-router": "^7.1.1",
+    "koa2-middleware-slacker": "^1.2.1",
     "lodash": "^4.17.4",
     "log4js": "^0.6.38",
     "moment": "^2.17.1",
