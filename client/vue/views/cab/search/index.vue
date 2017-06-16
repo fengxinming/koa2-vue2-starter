@@ -3,7 +3,7 @@
     main.page-main(data-name='flight-search')
       .flight-banner
         a.link(href='/actpage/invite-intro.html')
-          img.image(src='/static/images/banners/commons/adbanner.jpg')
+          img.image(src='/images/banners/commons/adbanner.jpg')
       .search-form
         .tab-buttons
           .button(:class='{ active: form.voyagetype === 1 }', @click='selectVoyagetype(1);') 单程

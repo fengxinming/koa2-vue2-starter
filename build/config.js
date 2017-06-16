@@ -5,12 +5,11 @@ const cfgConstants = require('../server/utils/cfg-constants');
 // const pkg = require('../package');
 
 const staticDir = cfgConstants.staticDir;
-const staticPath = cfgConstants.staticPath;
 const viewsDir = cfgConstants.viewsDir;
 
 module.exports = {
   NODE_ENV: cfgConstants.NODE_ENV,
-  publicPath: staticPath + '/assets/index/',
+  publicPath: '/assets/index/',
   outputPath: path.resolve(staticDir, 'assets/index'),
   outputIndexPath: path.join(staticDir, 'assets/index.html'),
   outputIndexTemplatePath: path.join(viewsDir, 'index.pug'),

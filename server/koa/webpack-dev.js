@@ -1,7 +1,5 @@
 'use strict';
 
-const nativePath = require('path');
-const chalk = require('chalk');
 const webpack = require('webpack');
 const koaWebpack = require('koa-webpack');
 const cfgConstants = require('../utils/cfg-constants');
@@ -9,21 +7,8 @@ const buildConfig = require('../../build/config');
 const clientConfig = require('../../build/webpack.dev');
 const cfgFactory = require('../utils/cfg-factory');
 
-const pkg = require(nativePath.join(cfgConstants.projectDir, 'package.json'));
 const serverConfig = cfgFactory.getConfig('server');
-
-class LogPlugin {
-  constructor(port) {
-    this.port = port;
-  }
-
-  apply(compiler) {
-    compiler.plugin('done', () => {
-      const address = `http://localhost:${this.port}`;
-      console.log(`> ${pkg.name} is running at ${chalk.yellow(address)}\n`);
-    });
-  }
-}
+const LogPlugin = require('../../build/plugins/dev-log-plugin');
 
 module.exports = function setupDevServer(app, router) {
   clientConfig.entry.client = [

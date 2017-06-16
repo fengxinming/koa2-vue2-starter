@@ -2,7 +2,6 @@
 
 const path = require('path');
 const _ = require('../../server/utils/cfg-constants');
-const staticPathLen = _.staticPath.length;
 
 module.exports = {
   // 服务启动相关配置
@@ -31,9 +30,6 @@ module.exports = {
     // 静态文件目录
     staticDir: _.staticDir,
 
-    // 静态资源前缀
-    staticPath: _.staticPath,
-
     // 静态文件的映射
     staticMappings: {},
 
@@ -59,8 +55,8 @@ module.exports = {
         '~nib/lib/nib/index.styl',
         _.customStylusUtils
       ],
-      src: (cssPath) => path.join(_.clientDir, cssPath.slice(staticPathLen).replace('.css', '.styl')),
-      dest: (cssPath) => path.join(_.staticDir, cssPath.slice(staticPathLen))
+      src: _.clientDir,
+      dest: _.staticDir
     }
   },
 

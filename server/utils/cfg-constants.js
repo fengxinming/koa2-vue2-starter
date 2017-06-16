@@ -8,8 +8,6 @@ _.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const projectDir = _.projectDir = process.cwd();
 
-_.staticPath = '/static';
-
 _.staticDir = path.resolve(projectDir, 'public');
 
 const clientDir = _.clientDir = path.resolve(projectDir, 'client');

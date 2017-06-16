@@ -1,7 +1,7 @@
 extends ./partials/layout
 
 append css
-  link(rel='stylesheet', type='text/css', href='!{locals.STATIC_PATH}/css/app.css')
+  link(rel='stylesheet', type='text/css', href='!{locals.CONTEXT_PATH}/css/app.css')
 
 block content
   if NODE_ENV !== 'production'

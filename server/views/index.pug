@@ -27,7 +27,7 @@ html
     title= locals.TITLE
     include ./partials/taobao-rem
     //- link(rel='apple-touch-icon-precomposed', href='')
-    link(rel='stylesheet', href='/static/css/app.css')
+    link(rel='stylesheet', href='/css/app.css')
     - 
       const globals = {
         REST_PATH: locals.REST_PATH,
@@ -51,4 +51,4 @@ html
   body
     #app
     script.
-      if(!window.Promise) {document.writeln('<script src="/static/bower-components/es6-promise/es6-promise.auto.min.js"'+'>'+'<'+'/'+'script>');}
+      if(!window.Promise) {document.writeln('<script src="/bower-components/es6-promise/es6-promise.auto.min.js"'+'>'+'<'+'/'+'script>');}
