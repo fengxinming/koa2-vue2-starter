@@ -2,7 +2,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-import createLogger from 'vuex/src/plugins/logger';
+import createLogger from 'vuex/dist/logger';
 import Router from 'vue-router';
 import { sync } from 'vuex-router-sync';
 // import { MessageBox, Toast, Popup, Switch, Spinner } from 'mint-ui';

@@ -2,6 +2,9 @@
 
 const path = require('path');
 const _ = require('../../server/utils/cfg-constants');
+const autoprefixer = require('autoprefixer')({
+  browsers: ['last 30 versions', 'ie > 8']
+});
 
 module.exports = {
   // 服务启动相关配置
@@ -75,5 +78,25 @@ module.exports = {
     apis: {
       dir: path.resolve(_.projectDir, 'server', 'apis')
     }
+  },
+
+  // 构建打包
+  build: {
+    NODE_ENV: _.NODE_ENV,
+    publicPath: '/assets/',
+    outputPath: path.resolve(_.staticDir, 'assets'),
+    // outputIndexPath: path.join(_.staticDir, 'index.html'),
+    // outputIndexTemplatePath: path.join(_.viewsDir, 'index.pug'),
+    babel: {
+      babelrc: false,
+      presets: ['vue-app']
+    },
+    postcss: [
+      autoprefixer,
+      require('postcss-nested')
+    ],
+    cssModules: false,
+    target: 'web',
+    assetsFilePath: path.join(_.projectDir, 'tmp', 'assets.json')
   }
 };

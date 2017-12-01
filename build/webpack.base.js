@@ -1,10 +1,10 @@
 'use strict';
+
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const config = require('./config');
+const ExtractChunks = require('extract-chunks-webpack-plugin');
 const _ = require('./utils');
 
-const locals = require('../server/utils/cfg-factory').getConfig('locals');
+const config = require('../server/utils/cfg-factory').getConfig('server').build;
 
 module.exports = {
   entry: {
@@ -56,12 +56,8 @@ module.exports = {
   },
   plugins: [
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
-    new HtmlWebpackPlugin({
-      title: config.title,
-      locals: locals,
-      template: config.outputIndexTemplatePath,
-      filename: config.outputIndexPath,
-      chunks: ['manifest', 'vendor', 'client']
+    new ExtractChunks({
+      filename: config.assetsFilePath
     }),
     new webpack.LoaderOptionsPlugin(_.loadersOptions())
   ],
