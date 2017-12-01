@@ -5,9 +5,6 @@ const path = require('path');
 const _ = require('lodash');
 const mount = require('koa-mount');
 const Router = require('koa-router');
-const send = require('koa-send');
-
-const cfgFactory = require('../utils/cfg-factory');
 
 // function responseTime(res, start) {
 //   const delta = Math.ceil(Date.now() - start);
@@ -16,12 +13,15 @@ const cfgFactory = require('../utils/cfg-factory');
 
 module.exports = (app) => {
 
-  const cfgPath = require('../utils/cfg-constants');
+  const cfgFactory = require('../utils/cfg-factory');
 
   const localsConfig = cfgFactory.getConfig('locals');
 
+  const cfgPath = require('../utils/cfg-constants');
+
   const idDev = cfgPath.NODE_ENV === 'development';
 
+  // 加载services服务
   const allServices = require('../services');
 
   const router = new Router();
@@ -42,10 +42,12 @@ module.exports = (app) => {
           if (_.isObject(customRoute)) {
             const middlewares = [];
             let useFn = customRoute.use;
-            if (!Array.isArray(useFn)) {
+            if (useFn && !Array.isArray(useFn)) {
               useFn = [useFn];
             }
-            middlewares.push(...useFn);
+            if (useFn && useFn.length) {
+              middlewares.push(...useFn);
+            }
             const renderFn = customRoute.render;
             if (_.isString(renderFn)) {
               middlewares.push(allServices.common.renderQuickly);
@@ -57,21 +59,37 @@ module.exports = (app) => {
     }
   });
 
+  const serverConfig = cfgFactory.getConfig('server');
+  const assetsFilePath = serverConfig.build.assetsFilePath;
+  let webpackAssets;
+  if (fs.existsSync(assetsFilePath)) {
+    // webpackAssets = require(assetsFilePath); 有缓存
+    webpackAssets = JSON.parse(fs.readFileSync(assetsFilePath).toString());
+  }
+
   // 如果是开发环境就启动热加载
   if (idDev) {
     app.use(mount(localsConfig.TEST_PATH, (ctx) => {
       ctx.body = require(path.join(__dirname, '../test-api', ctx.url.replace(ctx.search, '')));
     }));
     require('./webpack-dev')(app, router);
-  } else {
-    router.get(
+    app.use((ctx, next) => {
+      if (!webpackAssets) {
+        webpackAssets = JSON.parse(fs.readFileSync(assetsFilePath).toString());
+      }
+      return next();
+    });
+  }
+
+  router
+    .get(
       '*',
       (ctx) => {
-        return send(ctx, '/assets/index.html', {
-          root: cfgPath.staticDir
+        return ctx.render('index', {
+          webpackAssets: webpackAssets || {}
         });
-      });
-  }
+      }
+    );
 
   app
     .use(router.routes())

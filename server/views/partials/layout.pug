@@ -1,9 +1,5 @@
 doctype html
 
-- if (typeof locals === 'undefined') {
--   var locals = htmlWebpackPlugin ? htmlWebpackPlugin.options.locals : {};
-- }
-
 html
   head
     meta(charset='utf-8')
@@ -15,7 +11,7 @@ html
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black')
     meta(name='apple-touch-fullscreen', content='yes')
-    meta(name='format-detection', content='telephone=no,email=no')
+    //- meta(name='format-detection', content='telephone=no,email=no')
     //- UC默认竖屏 ，UC强制全屏
     meta(name='full-screen', content='yes')
     meta(name='browsermode', content='application')
@@ -24,34 +20,43 @@ html
     meta(name='x5-fullscreen', content='true')
     meta(name='x5-page-mode', content='app')
     meta(name='App-Config', content='fullscreen=yes,useHistoryState=yes,transition=yes')
-    meta(name='keywords', content=locals.KEYWORDS)
-    meta(name='description', content=locals.DESCRIPTION)
-    title= locals.TITLE
-    include ./taobao-rem
+    meta(name='keywords', content=KEYWORDS)
+    meta(name='description', content=DESCRIPTION)
+    title= TITLE
+    //- base(href=`${CONTEXT_PATH}/`)
+    block rem
+      include ./taobao-rem
     //- link(rel='apple-touch-icon-precomposed', href='')
     block css
     - 
       const globals = {
-        REST_PATH: locals.REST_PATH,
-        TEST_PATH: locals.TEST_PATH,
-        CONTEXT_PATH: locals.CONTEXT_PATH,
-        WEEK_LABELS: locals.WEEK_LABELS,
-        IDTYPES: locals.IDTYPES
+        REST_PATH: REST_PATH,
+        TEST_PATH: TEST_PATH,
+        CONTEXT_PATH: CONTEXT_PATH,
+        VERSION: VERSION
       };
     script.
       window.App = { globals: !{JSON.stringify(globals)} };
-    //-
-      if NODE_ENV === 'production'
-        script.
-            var _hmt = _hmt || [];
-            (function () {
-                var hm = document.createElement("script");
-                hm.src = "//hm.baidu.com/hm.js?ce8fd662c244a4b59fe8c8ded89d2129";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
+      //- // 解决单页应用后退缓存问题
+      //- function pageshow(event) {
+      //-   var dom = document.getElementById('pageCacheInput'),
+      //-     ua = navigator.userAgent;
+      //-   if (ua.toLowerCase().indexOf('android') != -1) {
+      //-     return;
+      //-   }
+      //-   //event.persisted 好像部分IOS不管用，一直是false
+      //-   if (event.persisted || (dom && dom.value == 1)) {
+      //-     location.reload(true);
+      //-     //location.replace(location.href + (location.search?'&':'?') + "_="+Date.now());
+      //-   } else {
+      //-     dom.value = 1;
+      //-   }
+      //- }
+  //- body(onpageshow="pageshow(event)")
   body
+    //- input(type="hidden",id="pageCacheInput")
     block content
     script.
-      if(!window.Promise) {document.writeln('<script src="!{locals.CONTEXT_PATH}/bower-components/es6-promise/es6-promise.auto.min.js"'+'>'+'<'+'/'+'script>');}
-    block js  
+      if(!window.Promise) {document.writeln('<script src="!{STATIC_PATH}/bower-components/es6-promise/es6-promise.auto.min.js"'+'>'+'<'+'/'+'script>');}
+      if(!Object.assign) {document.writeln('<script src="!{STATIC_PATH}/bower-components/es6-shim/es6-shim.min.js"'+'>'+'<'+'/'+'script>');}
+    block js

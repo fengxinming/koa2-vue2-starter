@@ -10,7 +10,7 @@ node_modules
 public/js
 public/css
 public/assets
-dist
+tmp
 coverage
 
 .idea/

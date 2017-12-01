@@ -1,8 +1,8 @@
 'use strict';
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const config = require('./config');
 const serverConfig = require('../server/utils/cfg-factory').getConfig('server');
+const config = serverConfig.build;
 const cfgConstants = require('../server/utils/cfg-constants');
 
 const _ = module.exports = {};
