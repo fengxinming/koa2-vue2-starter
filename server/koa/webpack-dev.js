@@ -1,14 +1,28 @@
 'use strict';
 
+const nativePath = require('path');
+const chalk = require('chalk');
 const webpack = require('webpack');
 const koaWebpack = require('koa-webpack');
 const cfgConstants = require('../utils/cfg-constants');
-const buildConfig = require('../../build/config');
 const clientConfig = require('../../build/webpack.dev');
 const cfgFactory = require('../utils/cfg-factory');
 
+const pkg = require(nativePath.join(cfgConstants.projectDir, 'package.json'));
 const serverConfig = cfgFactory.getConfig('server');
-const LogPlugin = require('../../build/plugins/dev-log-plugin');
+
+class LogPlugin {
+  constructor(port) {
+    this.port = port;
+  }
+
+  apply(compiler) {
+    compiler.plugin('done', () => {
+      const address = `http://localhost:${this.port}`;
+      console.log(`> ${pkg.name} is running at ${chalk.yellow(address)}\n`);
+    });
+  }
+}
 
 module.exports = function setupDevServer(app, router) {
   clientConfig.entry.client = [
@@ -35,28 +49,15 @@ module.exports = function setupDevServer(app, router) {
   });
   app.use(middleware);
   const devMiddleWare = middleware.dev;
-  const mfs = devMiddleWare.fileSystem;
-  const file = buildConfig.outputIndexPath;
 
-  devMiddleWare.waitUntilValid();
-  // clientCompiler.plugin('done', () => {
-  //   const fs = devMiddleWare.fileSystem;
-  //   const filePath = path.join(clientConfig.output.path, '../index.html');
-  //   if (fs.existsSync(filePath)) {
-  //     const index = fs.readFileSync(filePath, 'utf-8');
-  //   }
-  // })
-
-  // 加载services服务
-  // const allServices = require('../services');
-  router.get(
-    '*',
-    (ctx) => {
+  // 等待webpack中间件加载好之后才渲染服务
+  app.use(async function waitUntilValid(ctx, next) {
+    await new Promise((resolve, reject) => {
       devMiddleWare.waitUntilValid(() => {
-        const html = mfs.readFileSync(file);
-        ctx.type = 'text/html; charset=utf-8';
-        ctx.body = html;
+        resolve();
       });
-    }
-  );
+    });
+    await next();
+  });
+
 };

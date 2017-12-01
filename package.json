@@ -1,6 +1,6 @@
 {
-  "name": "h5-travel-plus",
-  "description": "mobile starter",
+  "name": "koa2-mobile-starter",
+  "description": "koa2 webpack2 mobile starter",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -48,6 +48,7 @@
     "eslint-plugin-testcafe": "^0.2.0",
     "eslint-plugin-vue": "latest",
     "express": "^4.14.0",
+    "extract-chunks-webpack-plugin": "^2.0.2",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "fastclick": "^1.0.6",
     "file-loader": "^0.9.0",
